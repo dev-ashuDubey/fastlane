@@ -40,12 +40,12 @@ module Deliver
 
     def find_app(options)
       app_identifier = options[:app_identifier]
-      app_id = options[:app] if app_identifier.to_s.empty?
+      app_id = options[:apple_id]
 
-      if !app_identifier.to_s.empty?
-        app = Spaceship::ConnectAPI::App.find(app_identifier)
-      elsif !app_id.kind_of?(Spaceship::ConnectAPI::App) && !app_id.to_s.empty?
+      if !app_id.kind_of?(Spaceship::ConnectAPI::App) && !app_id.to_s.empty?
         app = Spaceship::ConnectAPI::App.get(app_id: app_id)
+      elsif !app_identifier.to_s.empty?
+        app = Spaceship::ConnectAPI::App.find(app_identifier)
       end
 
       Deliver.cache[:app] = app

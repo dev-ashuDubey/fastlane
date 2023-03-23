@@ -447,11 +447,10 @@ module Deliver
                                      optional: true,
                                      default_value: true),
 
-        # internal
-        FastlaneCore::ConfigItem.new(key: :app,
+        FastlaneCore::ConfigItem.new(key: :apple_id,
                                      short_option: "-p",
-                                     env_name: "DELIVER_APP_ID",
-                                     description: "The (spaceship) app ID of the app you want to use/modify",
+                                     env_name: "DELIVER_APPLE_ID",
+                                     description: "Apple ID property in the App Information section in App Store Connect",
                                      optional: true,
                                      type: Integer)
       ]
